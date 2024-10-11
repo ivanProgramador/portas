@@ -8,12 +8,10 @@ export default function Home() {
    
    const [p1,setP1] = useState(new PortaModel(1));
   
-
-
-
   return (
     <div style={{display:"flex"}} >
-      <Porta porta={p1} />
+
+      <Porta value={p1} onChange={novaPorta=> console.log(novaPorta)} />
       
     </div>
   );
