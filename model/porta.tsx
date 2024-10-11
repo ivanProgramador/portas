@@ -1,12 +1,25 @@
 export default class PortaModel{
 
+
+    // esse atributos são privados por isso eles tem o # na frente
+    //como estou usando typescript eu tenho que dizer qwuais são os tipos dessas variáveis 
+
     #numero: number
     #temPresente: boolean
     #selecionada:boolean
     #aberta: boolean
 
-     constructor(numero:number, temPresente = false,selecionada=false, aberta = false){
+    /*
+     esse eo construtor que recebe os parâmetros para a criação de um objeto
+     basedo na classe PortaModel por exemplo todos os opbjetos que são criados
+     baseados nessa classe são portas porém uma porta dessa classe pode ter:
+     "numero 2" ela pode estar fechada ou aberta isso quem decide são os parâmetros
+     que serão enviados ao construtor    
 
+    */
+
+     constructor(numero:number, temPresente = false,selecionada=false, aberta = false){
+        
          this.#numero = numero
          this.#temPresente = temPresente 
          this.#selecionada = selecionada

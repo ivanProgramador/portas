@@ -11,7 +11,7 @@ export default function Home() {
   return (
     <div style={{display:"flex"}} >
 
-      <Porta value={p1} onChange={novaPorta=> console.log(novaPorta)} />
+      <Porta value={p1} onChange={novaPorta=> setP1(novaPorta)} />
       
     </div>
   );

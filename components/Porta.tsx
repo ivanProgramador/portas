@@ -15,7 +15,7 @@ export default function Porta(props: PortaProps){
 
     const selecionada = porta.selecionada ? styles.selecionada:''
 
-    const alternarSelecao = e => props.onChange(porta.alternarSelecao);
+    const alternarSelecao = e => props.onChange(porta.alternarSelecao());
 
     return(   
        <div className={styles.area} onClick={alternarSelecao}>
