@@ -2,11 +2,22 @@
 import PortaModel from "@/model/porta";
 import styles from "../styles/Porta.module.css"
 
-interface PortaProps {
 
+/*
+ 
+ uma interface se comporta como um controle remoto onde eu posso
+ assumir o controle de uma classe sem precisa mexer nela diretamente
+ eu criei uma interface chamada PortaProps que recebe como valor a classe PortaModel  
+ e tem ma função onChange que retorna um objeto basedo na mimha classe
+ 
+ Assim eu não preciso alterar o obvjeto original digamos que a pessoa clica na porta 
+ eu retono uma nova porta selecionada ao inves de mexer nbo objeto criado inicialmente 
+ sem essa seleção.
+ 
+*/
+interface PortaProps {
    value: PortaModel
    onChange: (novaPorta: PortaModel) => void
-
 }
 
 export default function Porta(props: PortaProps){
