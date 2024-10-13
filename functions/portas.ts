@@ -16,14 +16,14 @@ import PortaModel from "@/model/porta";
 /*
  Essa função vai receber a quantidade de portas selecionadas e o numero da porta selecionada 
 */
-export function criarPortas(qtde:number, selecionada: number):PortaModel[]{
+export function criarPortas(qtde:number, portaComPresente: number):PortaModel[]{
        
        //a afunção array.from() esta gerando um array do tamanho da quantidade de portas selecionadas 
 
         return Array.from({length:qtde},(_,i)=>{
 
             const numero = i + 1
-            const temPresente  = numero === selecionada
+            const temPresente  = numero === portaComPresente
 
             return new PortaModel(numero,temPresente)
 
