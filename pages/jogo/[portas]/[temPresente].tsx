@@ -11,7 +11,7 @@ import { useRouter } from "next/router";
 export default function jogo() {
 
 const router = useRouter();
-
+ const [valido,setValido] = useState(false);
  const[portas, setPortas] = useState([]);
 
 
@@ -38,14 +38,31 @@ const router = useRouter();
       que ele está monitorando no meu caso ele 
       está monitorando o objeto que vem da query.
 
-
-
  */
- useEffect(()=>{
-    const portas = +router.query.portas 
-    const temPresente = +router.query.temPresente 
-    setPortas(criarPortas(portas, temPresente))
- },[router?.query])
+
+  /*testando se o usuário colocou um valor valido para o jogo */
+
+    useEffect(()=>{
+
+      const portas = +router.query.portas 
+      const temPresente = + router.query.temPresente
+      
+      const qtdePortasValida = portas >= 3 && portas <= 100
+      const temPresenteValido = temPresente >= 1 && temPresente <= portas 
+      
+      //testando se as condições forma atendidas se sim o valor de valido muda para true 
+      setValido(qtdePortasValida && temPresenteValido)
+
+
+        
+    },[portas])
+
+
+    useEffect(()=>{
+       const portas = +router.query.portas 
+       const temPresente = +router.query.temPresente 
+       setPortas(criarPortas(portas, temPresente))
+},[router?.query])
 
 
 
@@ -68,7 +85,9 @@ const router = useRouter();
 
       <div className={style.portas} >
 
-        {renderizarPortas()}
+        { valido ? renderizarPortas():
+           <h2 style={{color:"white"}}>Valores invalidos</h2>
+        }
 
       </div>
 
