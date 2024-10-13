@@ -1,16 +1,49 @@
-import PortaModel from "@/model/porta";
-import Porta from "../components/Porta";
+import Cartao from "@/components/Cartao";
+import styles from "../styles/Formulario.module.css"
+import Link from "next/link";
+import EntradaNumerica from "@/components/EntradaNumerica";
 import { useState } from "react";
-import { atualizarPortas, criarPortas } from "@/functions/portas";
 
 
+export default function Formulario() {
 
-export default function Home() {
+  const[qtdePortas,setQtdePortas] = useState(4)
+  const[comPresente,setComPresente] = useState(2)
 
   return (
-    <div style={{display:"flex"}} >
+    <div className={styles.formulario} >
+     <div>
+       <Cartao bgcolor="#c0392c">
+         <h2>Month Hall</h2>
+       </Cartao>
+       <Cartao>
+           <EntradaNumerica 
+              text="Qtd de Portas"
+              value={qtdePortas}
+              onChange={novaQte => setQtdePortas(novaQte)}
+            />
+     
 
-      <h1>Formulario de inicio</h1>
+       </Cartao>
+     </div>
+     <div>
+    <Cartao>
+
+    <EntradaNumerica 
+              text="Com presente"
+              value={comPresente}
+              onChange={novaPortaComPresente => setComPresente(novaPortaComPresente)}
+      />
+     </Cartao>
+     <Cartao  bgcolor="#28a085">
+       <Link href={`/jogo/4/2`} >
+        <h2 className={styles.link} >Iniciar</h2>
+        
+       </Link>
+     </Cartao>
+         
+     </div>
+      
       
     </div>
   );
